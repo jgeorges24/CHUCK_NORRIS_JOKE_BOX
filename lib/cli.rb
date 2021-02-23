@@ -1,25 +1,29 @@
 class TopGamesxx::CLI
 
-    def run
-        greeting
-        user_input
+    
+    puts "this is cli file"
+    
+    
+    # def run
+    #     greeting
+    #     user_input
 
 
-    end
+    # end
 
 
 
-    def greeting
+    # def greeting
 
 
-        puts "Hey Are you a true gamer?"
+    #     puts "Hey Are you a true gamer?"
 
-    end
+    # end
 
-    def user_input
-        gets.chomp
+    # def user_input
+    #     gets.chomp
 
-    end
+    # end
 
 
 

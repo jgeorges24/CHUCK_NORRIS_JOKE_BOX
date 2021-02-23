@@ -1,4 +1,3 @@
-require 'pry'
 
 Class TopGamesxx::API
 

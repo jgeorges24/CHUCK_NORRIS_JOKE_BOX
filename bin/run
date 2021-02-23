@@ -1,4 +1,6 @@
+#!/usr/bin/env ruby
 
-require_relative '../lib/environment.rb'
+require_relative "../lib/environment.rb"
 
-puts "yo whats up bro!"
+
+TopGamesxx::CLI.new
