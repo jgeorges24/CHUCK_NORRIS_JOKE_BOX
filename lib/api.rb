@@ -1,6 +1,6 @@
 require 'pry'
 
-Class API
+Class TopGamesxx::API
 
     URL = "https://www.cheapshark.com/api/1.0/games?ids=128,129,130,224,123,121,145"
 
@@ -16,5 +16,5 @@ Class API
 
 
 
-    
+
 end

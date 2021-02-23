@@ -1,4 +1,4 @@
-Class Top_games
+Class TopGamesxx::Top_games
 
 
 

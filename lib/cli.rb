@@ -1,9 +1,9 @@
-class CLI
+class TopGamesxx::CLI
 
     def run
         greeting
         user_input
-        
+
 
     end
 
