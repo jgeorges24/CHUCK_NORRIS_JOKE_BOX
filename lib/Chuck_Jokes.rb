@@ -3,7 +3,7 @@ class Chuck_Jokes
     @@all = []
     #attr_accessor :id, :joke, :categories
 
-     puts "this is the Chuck_Jokes class"\
+     puts "this is the Chuck_Jokes class"
     # attr_accessor :id, :joke
 
     def initialize(jokes_data)
