@@ -1,5 +1,5 @@
 require 'pry'
-require_relative "../config/environment.rb"
+# require_relative "../config/environment.rb"
 
 
     class API
@@ -7,9 +7,9 @@ require_relative "../config/environment.rb"
             @url = 'http://api.icndb.com/jokes/random/10'
         end
 
-        def get_games_titles
-            games_hash = HTTParty.get(@url)
-            xgames = games_hash
+        def get_chuck_jokes
+            chuck_jokes_hash = HTTParty.get(@url)
+            
         binding.pry
         end
 

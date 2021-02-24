@@ -1,10 +1,10 @@
 
-class Top_Games
+class Chuck_Jokes
     @@all = []
 
-    # puts "this is the Top_games class"
-    def initialize(games_data)
-        games_data.each do |key, value|
+    # puts "this is the jokes_data class"
+    def initialize(jokes_data)
+        jokes_data.each do |key, value|
             self.class.attr_accessor(key)
             self.send(("#{key}="), value)
             end
