@@ -1,6 +1,0 @@
-Class TopGamesxx::TopGames
-
-
-
-
-end

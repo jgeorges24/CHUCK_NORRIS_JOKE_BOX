@@ -1,32 +1,13 @@
-class TopGamesxx::CLI
+require 'pry'
+
+
+class CLI
 
     
-    puts "this is cli file"
-    
-    
-    # def run
-    #     greeting
-    #     user_input
-
-
-    # end
-
-
-
-    # def greeting
-
-
-    #     puts "Hey Are you a true gamer?"
-
-    # end
-
-    # def user_input
-    #     gets.chomp
-
-    # end
-
-
-
-
+ puts "this is cli file"
+     def run
+        greeting
+        user_input
+     end
 
 end

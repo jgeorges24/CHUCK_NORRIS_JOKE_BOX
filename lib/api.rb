@@ -1,19 +1,17 @@
+require 'pry'
+#  require_relative "../config/environment.rb"
 
-Class TopGamesxx::API
+    class API
+     
+        url = 'https://www.cheapshark.com/api/1.0/games?ids=128,129,130,224,123,29,145'
 
-    URL = "https://www.cheapshark.com/api/1.0/games?ids=128,129,130,224,123,121,145"
-
-    def get_gamesData
-        topgames_hash = HTTParty.get(URL)
-        binding.pry
-        topgames_hash.each do |xtopgames| 
+        def Get_GamesData(url)
+            topgames_hash = HTTParty.get(url)
+                #  topgames_hash.each_with_index do |games_data, index|
+                #     puts "these are the games #{index} .  #{games_data}, "
+                #  end
+            
         end
     end
-
-
-
-
-
-
-
-end
+    topgames_hash = HTTParty.get(url)
+    binding.pry
