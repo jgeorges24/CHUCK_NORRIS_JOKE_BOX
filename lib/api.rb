@@ -1,17 +1,18 @@
 require 'pry'
-#  require_relative "../config/environment.rb"
+require_relative "../config/environment.rb"
+
 
     class API
-     
-        url = 'https://www.cheapshark.com/api/1.0/games?ids=128,129,130,224,123,29,145'
-
-        def Get_GamesData(url)
-            topgames_hash = HTTParty.get(url)
-                #  topgames_hash.each_with_index do |games_data, index|
-                #     puts "these are the games #{index} .  #{games_data}, "
-                #  end
-            
+        def initialize
+            @url = 'http://api.icndb.com/jokes/random/10'
         end
+
+        def get_games_titles
+            games_hash = HTTParty.get(@url)
+            xgames = games_hash
+        binding.pry
+        end
+
+
     end
-    topgames_hash = HTTParty.get(url)
-    binding.pry
+ 

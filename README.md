@@ -1,9 +1,9 @@
-# Top_Games_To_Beat_B4_U_Die
-top games to play
+# Top_chuck_norris_jokes
+top chuck norris jokes 
 
 ## The purpose of this CLI App?
 
-This is your one stop app to find out the games you should play and beat before you pass and leave earth.
+This is your one stop app to find out the truth of all chuck norris jokes.
 
 ### Install Instructions
 
