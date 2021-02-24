@@ -2,7 +2,7 @@
 class Chuck_Jokes
     @@all = []
 
-    # puts "this is the jokes_data class"
+     puts "this is the Chuck_Jokes class"
     def initialize(jokes_data)
         jokes_data.each do |key, value|
             self.class.attr_accessor(key)
