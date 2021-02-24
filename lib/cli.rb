@@ -5,11 +5,11 @@ class CLI
     
  puts "this is cli file"
       def run
-            greeting
-            user_input
-            API.new.get_chuck_jokes
-            display
-            # Chuck_Jokes.new.(jokes_data)
+        greeting
+        user_input
+        API.new.get_chuck_jokes
+        display
+        # Chuck_Jokes.new.(jokes_data)
       end
 
       def greeting 
@@ -23,7 +23,7 @@ class CLI
         end
 
       def user_input
-        user_reply = gets.chomp
+        reply = gets.chomp
         #more code if else statement...
       end
 

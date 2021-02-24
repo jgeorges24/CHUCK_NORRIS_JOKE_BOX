@@ -1,5 +1,7 @@
 require 'pry'
 require 'httparty'
+require_relative './chuck_joke.rb'
+
 class API
 
     def initialize
@@ -10,17 +12,11 @@ class API
         chuck_jokes_hash = HTTParty.get(@url)
         array_jokes = chuck_jokes_hash["value"]
         array_jokes.each do |joke_hash|
-        Chuck_Jokes.new(joke_hash)
-        end
+        Chuck_Joke.new(joke_hash)
         binding.pry
+         end
+        #binding.pry
     end
-    
-    # def get_quick_3jokes
-    #     chuck_jokes_hash["value"][0..3]
-
-    # end
-
-
 end
 
-API.new.get_chuck_jokes
+API.new.get_chuck_joke
