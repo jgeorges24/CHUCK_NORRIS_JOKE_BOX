@@ -1,3 +1,5 @@
+# require_relative '../config/environment.rb'
+
 
 class Chuck_Joke
     @@all = []
@@ -8,8 +10,7 @@ class Chuck_Joke
 
     def initialize(jokes_data)
         jokes_data.each do |key, value|
-            
-            # binding.pry
+
             self.class.attr_accessor(key)
             self.send(("#{key}="), value) #if self.attr_accessor.include?(key) <-- this code will be used to filter out the other categories if we needed them or not...
             #self.id=(value)
@@ -19,11 +20,13 @@ class Chuck_Joke
             @@all << self
         end
 
-
-
         def self.all
             @@all
         end
 
+        def get_one_joke
+            
+
+        end
 
 end

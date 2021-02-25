@@ -1,3 +1,5 @@
-set up environment with readme and licesnes
-set up the folders
-create topgames_b4death
+must grab one joke is user types one 
+needs to run with bin/run
+must create menu that makes sense
+must be able to get user input for exit and exit program
+must use modules to seperate concerns

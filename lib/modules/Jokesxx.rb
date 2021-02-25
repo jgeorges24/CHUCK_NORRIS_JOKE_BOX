@@ -3,7 +3,7 @@
     
 #     #instance methods can be added here to be accessed everywhere
     
-#     def greeting_gamers
+#     def Jokes_categorie
         
 #         puts "...........------------............"
     
