@@ -25,8 +25,7 @@ class Chuck_Joke
         end
 
         def get_one_joke
-            
-
+            joke_hash
         end
 
 end
