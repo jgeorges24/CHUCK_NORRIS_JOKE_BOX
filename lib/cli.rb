@@ -10,7 +10,10 @@ class CLI
 
       #  puts "this is cli file"
       def run
-        greeting
+        puts "hello"
+        sleep(1)
+        puts "whats is thy name?"
+        greeting(user_input)
         #menu
         #user_input
         API.new.get_chuck_jokes
@@ -28,7 +31,15 @@ class CLI
       
       def menu
         #code for the menu goes here...
-        puts ""
+        selection = user_input
+
+        if selection == "yes"
+          #something happens
+        elsif selection == "no"
+          #this happens...
+        else
+          #okay this was an invalid response...
+        end
 
         
       end
