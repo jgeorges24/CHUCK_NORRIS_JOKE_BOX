@@ -7,7 +7,6 @@ class Chuck_Joke
 
      #puts "this is the Chuck_Jokes class"
     # attr_accessor :id, :joke
-
     def initialize(jokes_data)
         jokes_data.each do |key, value|
 
@@ -24,8 +23,6 @@ class Chuck_Joke
             @@all
         end
 
-        def get_one_joke
-            joke_hash
-        end
-
+       
+    # puts "chuck_jokes class has ran ---===---"
 end
