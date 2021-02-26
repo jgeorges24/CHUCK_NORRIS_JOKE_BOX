@@ -38,9 +38,8 @@ class CLI
       def menu
         #code for the menu goes here...
         selection = user_input
-        
+         #AFTER USER INPUT This happens below <----
         if selection == "yes"
-          #This happens below          
           puts "okay, wanna hear some nerdy or explicit jokes?"
           # pick_genre -> Nerdy or Explicit
             if selection == "nerdy"
@@ -63,10 +62,7 @@ class CLI
           invalid_command
           puts " "
         end
-      
       end
-
-      #what if user says yes???
 
       def jokeslist # <<<<---- if user selects yes ----->>>
          #an array of all of the objects
@@ -80,13 +76,12 @@ class CLI
           puts "#{index + 1}. <-> #{joke.joke}"
           
         end
-
       end
 
 
       def goodbye # if user says no
         sleep(1)
-        puts "Thanks for coming to my mom's house...stop bye for some more fun..."
+        puts "ENDING: <--- CHUCK NORRIS JOKE BOX ---> stop bye for some more fun..."
         sleep(1)
         exit
       end
