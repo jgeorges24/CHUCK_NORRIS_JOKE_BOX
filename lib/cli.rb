@@ -11,9 +11,7 @@ class CLI
       #  <<<<<____------ THIS IS WHERE WE RUN _____----------->>>>
       def run
         title_Intro
-        sleep(1)
-        puts " ^_^ Hey welcome to the spot, Whats your name? *_* "
-        sleep(1)
+        user_name_asker
         greeting(user_input) #<<--- check greeting method to see whats going on
         menu #<----- at this pointe we are asking user for y or n controle flow
         #display # <----- this is suppose to display the joke or jokes to the user
@@ -25,12 +23,21 @@ class CLI
 
  #<<----------DEFINED METHODS BELOW ----------->>>>
 
+    # TITLE METHOD ---->
+    def title_Intro
+      puts ""
+      puts "----->>> CHUCK NORRIS NERDY || EXPLICIT JOKE BOX <<<-----"
+      puts ""
+    end
+
       def greeting(name)
         puts " "
         #selection = user_input
         puts "Welcome #{name}, please don't mind my mom in the back!"
+        puts " "
         sleep(1)
         puts "I got some good Chuck Norris jokes for you..."
+        puts " "
         sleep(2)
         puts "So do you want to hear some jokes or nah? yes or no?"
       end
@@ -40,15 +47,30 @@ class CLI
         selection = user_input
          #AFTER USER INPUT This happens below <----
         if selection == "yes"
+          sleep(1)
           puts "okay, wanna hear some nerdy or explicit jokes?"
           # pick_genre -> Nerdy or Explicit
-            if selection == "nerdy"
+          choice = user_input # THIS IS THE CATAGORY CHOICE "nerdy" or "explicit"---> 
+            if choice == "nerdy"
               puts "GROOVY!, so you must be smart, check out these NERDY JOKES!"
               API.new.get_jokes_by_genre("nerdy")
-            else
-              selection == "explicit"
-              puts "FAIR WARNING!, don't piss yourself, have you heard of these"
-              API.new.get_jokes_by_genre("explicit")
+                jokeslist_with_index # -----> this calls those nerdy jokes with index
+            elsif
+              choice == "explicit"
+                puts "FAIR WARNING!, don't piss yourself, have you heard of these"
+                API.new.get_jokes_by_genre("explicit")
+                jokeslist_with_index
+            else      # ----> used as an error corrector if user types something other than nerdy or explicit
+              choice != "nerdy" || "explicit"
+              sleep(1)
+              puts "ooops!..."
+              sleep(1)
+              puts "Try it again!"
+              sleep(1)
+              puts " 0_o please type nerdy or explicit"
+              sleep(1)
+              puts "So do you want to hear some jokes, yes or no?"
+              menu
             end
               #jokeslist_with_index
 
@@ -63,8 +85,9 @@ class CLI
           puts " "
         end
       end
-
-      def jokeslist # <<<<---- if user selects yes ----->>>
+      
+        # jokes without index list//////
+      def jokeslist
          #an array of all of the objects
         Chuck_Joke.all.each do |joke|
           puts "#{joke.joke}"
@@ -78,15 +101,18 @@ class CLI
         end
       end
 
-
-      def goodbye # if user says no
+      # ///IF USER SAYS NO
+      def goodbye
+        puts " ^_^ REMEMBER TO KEEP SMILING! ^_^ "
+        puts " "
         sleep(1)
-        puts "ENDING: <--- CHUCK NORRIS JOKE BOX ---> stop bye for some more fun..."
+        puts "ENDING: <--- CHUCK NORRIS JOKE BOX ---> "
         sleep(1)
         exit
       end
-
-      def invalid_command #<<< if invalid comman ---> side not used menu method in  this method!!!
+      
+      #<<< if invalid comman ---> side not used menu method in  this method!!!
+      def invalid_command
         puts "HOW DARE YOU!? please type yes or no"
         sleep(1)
         puts "nothing else suckerr..."
@@ -98,23 +124,18 @@ class CLI
         
       end
 
-def joke_nerdy_catergorie
-
-  jokeslist
-
-end
-
+      # USER_INPUT ---->
       def user_input
           gets.strip
         #more code if else statement...
       end
-
-      def title_Intro
-        puts ""
-        puts "---------->>>> CHUCK NORRIS NERDY || EXPLICIT JOKE BOX <<<<---------"
-        puts ""
+      
+      # ASK USER FOR THEIR NAME
+      def user_name_asker
+        sleep(1)
+        puts " ^_^ Hey welcome to the spot, Whats your name? *_* "
+        sleep(1)
       end
-
 
 
 end

@@ -21,12 +21,10 @@ class API
          end
         #binding.pry
     end
-
+# LEVEL DEEPER MODE WITH USER SELECTION --->
      def get_jokes_by_genre(input)
-       @url =+ "[#{input}]"
+       @url += "[#{input}]"
        get_chuck_jokes
-     
-    
     end
 end
 
