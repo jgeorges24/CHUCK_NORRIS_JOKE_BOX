@@ -10,9 +10,9 @@ class CLI
 
       #  <<<<<____------ THIS IS WHERE WE RUN _____----------->>>>
       def run
-        
+        title_Intro
         sleep(1)
-        puts "whats is thy name?"
+        puts " ^_^ Hey welcome to the spot, Whats your name? *_* "
         sleep(1)
         greeting(user_input) #<<--- check greeting method to see whats going on
         menu #<----- at this pointe we are asking user for y or n controle flow
@@ -26,9 +26,11 @@ class CLI
  #<<----------DEFINED METHODS BELOW ----------->>>>
 
       def greeting(name)
-        puts "Welcome #{name}, don't mind my mom in the back.. this is my sancuary of The Great Chuck Norris!"
-        sleep(2)
-        puts "So this is where the magic happens, remember Chuck Norris is god around here.."
+        puts " "
+        #selection = user_input
+        puts "Welcome #{name}, please don't mind my mom in the back!"
+        sleep(1)
+        puts "I got some good Chuck Norris jokes for you..."
         sleep(2)
         puts "So do you want to hear some jokes or nah? yes or no?"
       end
@@ -38,16 +40,15 @@ class CLI
         selection = user_input
         
         if selection == "yes"
-          #something happens
-          
+          #This happens below          
           puts "okay, wanna hear some nerdy or explicit jokes?"
           # pick_genre -> Nerdy or Explicit
             if selection == "nerdy"
-              puts "Okay, so you must love life, check out these"
+              puts "GROOVY!, so you must be smart, check out these NERDY JOKES!"
               API.new.get_jokes_by_genre("nerdy")
             else
               selection == "explicit"
-              puts "Wow, well don't piss yourself, have you heard of these"
+              puts "FAIR WARNING!, don't piss yourself, have you heard of these"
               API.new.get_jokes_by_genre("explicit")
             end
               #jokeslist_with_index
@@ -113,7 +114,7 @@ end
         #more code if else statement...
       end
 
-      def Title_Intro
+      def title_Intro
         puts ""
         puts "---------->>>> CHUCK NORRIS NERDY || EXPLICIT JOKE BOX <<<<---------"
         puts ""

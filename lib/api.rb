@@ -11,6 +11,7 @@ class API
 
     def get_chuck_jokes
         puts "---------grabbed data---------"
+#-> The URL BELOW IS THE FORMAT WHAT WE WANT FROM THE API <-
         #http://api.icndb.com/jokes/random/10?limitTo=[nerdy]
         chuck_jokes_hash = HTTParty.get(@url)
         array_jokes = chuck_jokes_hash["value"]
@@ -38,3 +39,7 @@ end
 # joke_hash["joke"] returns just the jokes exclusively
 #Chuck_Joke.new(joke_hash) creates new individual joke objects
 #example => #<Chuck_Joke:0x00007fa1fb3c2360 @categories=[], @id=120, @joke="Chuck Norris played Russian Roulette with a fully loaded gun and won.">
+
+# ------> def get_jokes_by_genre(input)
+#@url =+ "[#{input}]"
+#get_chuck_jokes end <---------
