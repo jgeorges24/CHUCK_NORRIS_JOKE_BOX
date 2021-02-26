@@ -17,10 +17,11 @@ CHUCK NORRIS JOKE BOX CLI/DEMO
 
 ---
 
-## Install Instructions
+## FORK CLONE github Instructions
 
-Fork and clone this repo baby. 
-afterwards just execute, into your vs code and watch the app run.
+Fork and clone this repo.
+open it in VS code and type bin/run in the command line
+watch the app run.
 
 ---
 ## Contributing
