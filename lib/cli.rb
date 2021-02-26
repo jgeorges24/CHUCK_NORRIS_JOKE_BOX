@@ -8,20 +8,17 @@ class CLI
      # API.new.get_chuck_jokes
   end
 
-      #  <<<<<____------ THIS IS WHERE WE START _____----------->>>>
+      #  <<<<<____------ THIS IS WHERE WE RUN _____----------->>>>
       def run
-        puts "hello"
+        
         sleep(1)
         puts "whats is thy name?"
         sleep(1)
         greeting(user_input) #<<--- check greeting method to see whats going on
-        
         menu #<----- at this pointe we are asking user for y or n controle flow
         #display # <----- this is suppose to display the joke or jokes to the user
         #jokeslist # <------ this is suppose to display the joke or jokes to the user
-        
         #binding.pry
-        
         #API.new.get_chuck_jokes TOSSED THIS IN INITIALIZE TO GET THIS UPON INSTANCE.
         # Chuck_Jokes.new.(jokes_data)
       end
@@ -43,12 +40,14 @@ class CLI
         if selection == "yes"
           #something happens
           
-          puts "okay, well you wanna hear a nerdy or explicit jokes?"
+          puts "okay, wanna hear some nerdy or explicit jokes?"
           # pick_genre -> Nerdy or Explicit
             if selection == "nerdy"
+              puts "Okay, so you must love life, check out these"
               API.new.get_jokes_by_genre("nerdy")
             else
               selection == "explicit"
+              puts "Wow, well don't piss yourself, have you heard of these"
               API.new.get_jokes_by_genre("explicit")
             end
               #jokeslist_with_index
@@ -92,9 +91,9 @@ class CLI
       end
 
       def invalid_command #<<< if invalid comman ---> side not used menu method in  this method!!!
-        puts "HOW DARE YOU!? this is not what i asked of you... yes or no?!?"
-        sleep(2)
-        puts "please type yes or no, nothing else suckerr..."
+        puts "HOW DARE YOU!? please type yes or no"
+        sleep(1)
+        puts "nothing else suckerr..."
         menu
       end
 
@@ -114,13 +113,12 @@ end
         #more code if else statement...
       end
 
-      def Three_Jokes
-
+      def Title_Intro
+        puts ""
+        puts "---------->>>> CHUCK NORRIS NERDY || EXPLICIT JOKE BOX <<<<---------"
+        puts ""
       end
 
-      def Two_Jokes
-
-      end
 
 
 end

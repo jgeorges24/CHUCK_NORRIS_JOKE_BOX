@@ -7,13 +7,14 @@ class API
     def initialize
         @url = 'http://api.icndb.com/jokes/random/10?limitTo='
     end
+    #made adjustments to the API above to accomadate the if else function of nerdy or explicit jokes.
 
     def get_chuck_jokes
         puts "---------grabbed data---------"
         #http://api.icndb.com/jokes/random/10?limitTo=[nerdy]
         chuck_jokes_hash = HTTParty.get(@url)
         array_jokes = chuck_jokes_hash["value"]
-        array_jokes.each do |joke_hash| #may want to use .map to return all of them not just one at a time
+        array_jokes.each do |joke_hash| 
         Chuck_Joke.new(joke_hash)
         #binding.pry
          end
@@ -23,13 +24,9 @@ class API
      def get_jokes_by_genre(input)
        @url =+ "[#{input}]"
        get_chuck_jokes
-
-    end
-
-   
+     
     
-
-
+    end
 end
 
 #API.new.get_chuck_jokes
