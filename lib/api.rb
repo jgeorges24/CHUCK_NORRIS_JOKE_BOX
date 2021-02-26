@@ -5,12 +5,13 @@ require_relative './chuck_joke.rb'
 class API
 
     def initialize
-        @url = 'http://api.icndb.com/jokes/random/10?limitTo='
+        @url = 'http://api.icndb.com/jokes/random/3?limitTo='
     end
     #made adjustments to the API above to accomadate the if else function of nerdy or explicit jokes.
 
     def get_chuck_jokes
-        puts "---------grabbed data---------"
+        puts " "
+        puts "       ---------LOADING JOKES---------       "
 #-> The URL BELOW IS THE FORMAT WHAT WE WANT FROM THE API <-
         #http://api.icndb.com/jokes/random/10?limitTo=[nerdy]
         chuck_jokes_hash = HTTParty.get(@url)

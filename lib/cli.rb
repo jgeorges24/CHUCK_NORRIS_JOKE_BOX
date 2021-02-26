@@ -4,22 +4,19 @@
 class CLI
 
   def initialize
-
-     # API.new.get_chuck_jokes
+    # API.new.get_chuck_jokes 
+    #//commented out because we went a level deeper by not automatically calling it here we will explicity call it depending on the user choice
   end
 
       #  <<<<<____------ THIS IS WHERE WE RUN _____----------->>>>
       def run
         title_Intro
         user_name_asker
-        greeting(user_input) #<<--- check greeting method to see whats going on
-        menu #<----- at this pointe we are asking user for y or n controle flow
-        #display # <----- this is suppose to display the joke or jokes to the user
-        #jokeslist # <------ this is suppose to display the joke or jokes to the user
-        #binding.pry
-        #API.new.get_chuck_jokes TOSSED THIS IN INITIALIZE TO GET THIS UPON INSTANCE.
-        # Chuck_Jokes.new.(jokes_data)
+        greeting(user_input)
+        menu 
       end
+
+
 
  #<<----------DEFINED METHODS BELOW ----------->>>>
 
@@ -52,24 +49,26 @@ class CLI
           # pick_genre -> Nerdy or Explicit
           choice = user_input # THIS IS THE CATAGORY CHOICE "nerdy" or "explicit"---> 
             if choice == "nerdy"
+              puts" "
               puts "GROOVY!, so you must be smart, check out these NERDY JOKES!"
+              sleep(1)
               API.new.get_jokes_by_genre("nerdy")
-                jokeslist_with_index # -----> this calls those nerdy jokes with index
+              puts" "
+              # -----> this calls those nerdy jokes with index  
+              jokeslist_with_index 
+              closing_statment
             elsif
               choice == "explicit"
+              puts" "
                 puts "FAIR WARNING!, don't piss yourself, have you heard of these"
+                sleep(1)
                 API.new.get_jokes_by_genre("explicit")
                 jokeslist_with_index
+                closing_statment
             else      # ----> used as an error corrector if user types something other than nerdy or explicit
               choice != "nerdy" || "explicit"
               sleep(1)
-              puts "ooops!..."
-              sleep(1)
-              puts "Try it again!"
-              sleep(1)
-              puts " 0_o please type nerdy or explicit"
-              sleep(1)
-              puts "So do you want to hear some jokes, yes or no?"
+              nerdy_explicit_invlaid
               menu
             end
               #jokeslist_with_index
@@ -111,8 +110,8 @@ class CLI
         exit
       end
       
-      #<<< if invalid comman ---> side not used menu method in  this method!!!
-      def invalid_command
+      #<<< if invalid comman ---> with yes or no .side not used menu method in  this method!!!
+      def invalid_command 
         puts "HOW DARE YOU!? please type yes or no"
         sleep(1)
         puts "nothing else suckerr..."
@@ -137,5 +136,23 @@ class CLI
         sleep(1)
       end
 
+      def closing_statment
+        puts " "
+        puts "            ----- ^_^ -----                "
+        puts " "
+        puts "       COME BACK FOR MORE JOKES LATER      "
+        puts "-------------------------------------------"
+      end
 
+      def nerdy_explicit_invlaid
+
+        sleep(1)
+        puts "ooops!..."
+        sleep(1)
+        puts "Try it again!"
+        sleep(1)
+        puts " 0_o please type nerdy or explicit"
+        sleep(1)
+        puts "So do you want to hear some jokes, yes or no?"
+      end
 end
