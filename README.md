@@ -23,7 +23,13 @@ Fork and clone this repo baby.
 afterwards just execute, into your vs code and watch the app run.
 
 ---
-## Usage
+## Contributing
+JEAN GEORGES and the one and only 
+CHUCK NORRIS (for being so damn great),
+Open for any other contributers looking to turn this into a bible cli application lol...
+
+---
+##              Usage
 
 ``` def jokeslist_with_index
         Chuck_Joke.all.each_with_index do |joke, index|
@@ -45,3 +51,8 @@ afterwards just execute, into your vs code and watch the app run.
             ----- ^_^ -----                
  
        COME BACK FOR MORE JOKES LATER      
+```
+
+---
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
