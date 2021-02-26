@@ -22,7 +22,5 @@ class Chuck_Joke
         def self.all
             @@all
         end
-
-       
     # puts "chuck_jokes class has ran ---===---"
 end

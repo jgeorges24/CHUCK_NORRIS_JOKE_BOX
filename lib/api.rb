@@ -12,6 +12,8 @@ class API
     def get_chuck_jokes
         puts " "
         puts "       ---------LOADING JOKES---------       "
+        sleep(1)
+        puts " "
 #-> The URL BELOW IS THE FORMAT WHAT WE WANT FROM THE API <-
         #http://api.icndb.com/jokes/random/10?limitTo=[nerdy]
         chuck_jokes_hash = HTTParty.get(@url)

@@ -8,15 +8,13 @@ class CLI
     #//commented out because we went a level deeper by not automatically calling it here we will explicity call it depending on the user choice
   end
 
-      #  <<<<<____------ THIS IS WHERE WE RUN _____----------->>>>
+#  <<<<<____------ THIS IS WHERE WE RUN _____----------->>>>
       def run
         title_Intro
         user_name_asker
         greeting(user_input)
         menu 
       end
-
-
 
  #<<----------DEFINED METHODS BELOW ----------->>>>
 
@@ -27,29 +25,41 @@ class CLI
       puts ""
     end
 
+      # ASK USER FOR THEIR NAME
+      def user_name_asker
+        sleep(1)
+        puts " ^_^ Hey welcome to the spot, Whats your name? o_0 "
+        sleep(1)
+        puts " "
+      end
+
       def greeting(name)
         puts " "
         #selection = user_input
-        puts "Welcome #{name}, please don't mind my mom in the back!"
+        puts "Welcome #{(name).upcase}!, please don't mind my mom in the back!"
         puts " "
         sleep(1)
         puts "I got some good Chuck Norris jokes for you..."
         puts " "
-        sleep(2)
+        sleep(1)
         puts "So do you want to hear some jokes or nah? yes or no?"
       end
 
       def menu
         #code for the menu goes here...
-        selection = user_input
+        selection = user_input.downcase # <--- .downcase for error precautions
          #AFTER USER INPUT This happens below <----
+      
         if selection == "yes"
           sleep(1)
+          puts " "
           puts "okay, wanna hear some nerdy or explicit jokes?"
+          puts " "
           # pick_genre -> Nerdy or Explicit
-          choice = user_input # THIS IS THE CATAGORY CHOICE "nerdy" or "explicit"---> 
+          choice = user_input.downcase # THIS IS THE CATAGORY CHOICE "nerdy" or "explicit"---> 
             if choice == "nerdy"
               puts" "
+              sleep(1)
               puts "GROOVY!, so you must be smart, check out these NERDY JOKES!"
               sleep(1)
               API.new.get_jokes_by_genre("nerdy")
@@ -59,7 +69,7 @@ class CLI
               closing_statment
             elsif
               choice == "explicit"
-              puts" "
+                puts" "
                 puts "FAIR WARNING!, don't piss yourself, have you heard of these"
                 sleep(1)
                 API.new.get_jokes_by_genre("explicit")
@@ -68,7 +78,9 @@ class CLI
             else      # ----> used as an error corrector if user types something other than nerdy or explicit
               choice != "nerdy" || "explicit"
               sleep(1)
+              puts" "
               nerdy_explicit_invlaid
+              puts" "
               menu
             end
               #jokeslist_with_index
@@ -118,23 +130,13 @@ class CLI
         menu
       end
 
-      def display
-        #display data goes here.....
-        
-      end
-
       # USER_INPUT ---->
       def user_input
           gets.strip
         #more code if else statement...
       end
       
-      # ASK USER FOR THEIR NAME
-      def user_name_asker
-        sleep(1)
-        puts " ^_^ Hey welcome to the spot, Whats your name? *_* "
-        sleep(1)
-      end
+    
 
       def closing_statment
         puts " "
