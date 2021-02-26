@@ -8,7 +8,7 @@ class CLI
     #//commented out because we went a level deeper by not automatically calling it here we will explicity call it depending on the user choice
   end
 
-#  <<<<<____------ THIS IS WHERE WE RUN _____----------->>>>
+#  <<<<<____------ THIS IS WHERE Method RUN in CLI comes in _____----------->>>>
       def run
         title_Intro
         user_name_asker
