@@ -42,11 +42,13 @@ class CLI
         puts "I got some good Chuck Norris jokes for you..."
         puts " "
         # sleep(1)
-        puts "So do you want to hear some jokes or nah? yes or no?"
+        puts "So do you want to hear some jokes?"
       end
 
       def menu
         #code for the menu goes here...
+          puts "Please type yes or no?"
+          puts " "
           selection = user_input.downcase # <--- .downcase for error precautions
          #AFTER USER INPUT This happens below <----
       
@@ -62,20 +64,24 @@ class CLI
               # sleep(1)
               puts "GROOVY!, so you must be smart, check out these NERDY JOKES!"
               # sleep(1)
-              API.new.get_jokes_by_genre("nerdy")
-              puts" "
-              # -----> this calls those nerdy jokes with index  
+              @nerdy_jokes
+              puts" "  
               jokeslist_with_index
-
+              puts" "  
+              after_jokes_given
+              puts" "  
               closing_statment
             elsif
               choice == "explicit"
                 puts" "
                 puts "FAIR WARNING!, don't piss yourself, have you heard of these"
                 # sleep(1)
-                API.new.get_jokes_by_genre("explicit")
+                @explicit_jokes
                 jokeslist_with_index
-                closing_statment
+                puts" "
+                after_jokes_given
+                puts" "
+
             else      # ----> used as an error corrector if user types something other than nerdy or explicit
               choice != "nerdy" || "explicit"
               # sleep(1)
@@ -105,6 +111,7 @@ class CLI
           puts "#{joke.joke}"
         end
       end
+      
         # jokes with index list//////
       def jokeslist_with_index
         Chuck_Joke.all.each_with_index do |joke, index|
@@ -112,6 +119,12 @@ class CLI
           
         end
       end
+
+      #API CALLs for nerdy jokes used the @ symbole to make instance varibale 
+      @nerdy_jokes = API.new.get_jokes_by_genre("nerdy")
+      #API CALLs for explicit jokes used the @ symbole to make instance varibale 
+      @explicit_jokes = API.new.get_jokes_by_genre("explicit")
+
 
       # ///IF USER SAYS NO
       def goodbye
@@ -125,7 +138,7 @@ class CLI
       
       #<<< if invalid comman ---> with yes or no .side not used menu method in  this method!!!
       def invalid_command 
-        puts "HOW DARE YOU!? please type yes or no"
+        puts "HOW DARE YOU!? this is a yes or no question."
         # sleep(1)
         puts "nothing else suckerr..."
         menu
@@ -133,26 +146,44 @@ class CLI
 
       # USER_INPUT ---->
       def user_input
-          user_input = gets.strip
-        #more code if else statement...
+          user_input = gets.strip 
       end
       
       def after_jokes_given
 
         puts "Wanna hear some more jokes?"
         puts " "
-        puts "Please type yes or no?"
-        response = user_input.downcase
-        if response == "yes"
-          puts "COOL!"
-          puts " "
-          puts "wait...a nerdy or explicit joke? "
-          puts " "
-          response 
-          if response == "nerdy"
-          menu
+        menu
+        # response = user_input.downcase
+        # if response == "yes"
+        #   puts "COOL!"
+        #   puts " "
+        #   puts "wait...a nerdy or explicit joke? "
+        #   puts " "
+        #   response 
+        #   if response == "nerdy"
+        #     nerdy_jokes
+        #     jokeslist_with_index
+        #     after_jokes_given
 
+        #     elsif response == "explicit"
+        #       explicit_jokes
+        #       jokeslist_with_index
+        #       after_jokes_given
+            
+        #     else 
+        #       nerdy_explicit_invlaid
+        #     end
 
+        #   elsif response == "no"
+        #     goodbye
+        #   end
+
+        # else 
+        #   puts "Sorry for that, please type yes or no for more jokes..."
+        #   after_jokes_given
+        #   menu
+        # end
       end
 
       def closing_statment
@@ -161,6 +192,8 @@ class CLI
         puts " "
         puts "       COME BACK FOR MORE JOKES LATER      "
         puts "-------------------------------------------"
+        puts " "
+        exit
       end
 
       def nerdy_explicit_invlaid
