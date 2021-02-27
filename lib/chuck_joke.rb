@@ -23,7 +23,15 @@ class Chuck_Joke
             @@all
         end
 
-        def sel
+    def self.single_joke
+        single_j = joke_hash["joke"]
+        single_j.each do |x|
+            puts "#{x.joke}"
+        end
+    
+
+    end
+        
 
         # def 
         #     puts @@all

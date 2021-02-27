@@ -120,7 +120,7 @@ class CLI
         end
       end
 
-      def grabbed_all_jokes(input)
+      def grabbed_all_jokes(new_user_input)
         puts "type yes to see all or exit to exit app"
         if input == "yes"
           puts self.all
@@ -169,7 +169,6 @@ class CLI
 
         puts "Wanna hear some more jokes?"
         puts " "
-        
         menu
 
 
