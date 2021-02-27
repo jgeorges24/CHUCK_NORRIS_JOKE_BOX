@@ -3,10 +3,11 @@
 
 class CLI
 
-  #def initialize
-    # API.new.get_chuck_jokes 
+  def initialize
+     Chuck_Joke.all
+    
     #//commented out because we went a level deeper by not automatically calling it here we will explicity call it depending on the user choice
-  #end 
+  end 
 
 #  <<<<<____------ THIS IS WHERE Method RUN in CLI comes in _____----------->>>>
       def run
@@ -64,9 +65,7 @@ class CLI
               # sleep(1)
               puts "GROOVY!, so you must be smart, check out these NERDY JOKES!"
               # sleep(1)
-              @nerdy_jokes
-              puts" "  
-              jokeslist_with_index
+              nerd_jokes
               puts" "  
               after_jokes_given
               puts" "  
@@ -76,7 +75,8 @@ class CLI
                 puts" "
                 puts "FAIR WARNING!, don't piss yourself, have you heard of these"
                 # sleep(1)
-                @explicit_jokes
+                jokeslist
+                #@explicit_jokes
                 jokeslist_with_index
                 puts" "
                 after_jokes_given
@@ -120,11 +120,27 @@ class CLI
         end
       end
 
-      #API CALLs for nerdy jokes used the @ symbole to make instance varibale 
-      @nerdy_jokes = API.new.get_jokes_by_genre("nerdy")
-      #API CALLs for explicit jokes used the @ symbole to make instance varibale 
-      @explicit_jokes = API.new.get_jokes_by_genre("explicit")
+      def grabbed_all_jokes(input)
+        puts "type yes to see all or exit to exit app"
+        if input == "yes"
+          puts self.all
+        elsif input == "exit"
+          goodbye
+        else 
+          menu
+        end
+      end
 
+      #API CALLs for nerdy jokes used the @ symbole to make instance varibale 
+      def nerd_jokes
+        @nerdy_jokes = API.new.get_jokes_by_genre("nerdy")
+        jokeslist_with_index
+      end
+      #API CALLs for explicit jokes used the @ symbole to make instance varibale 
+      def explicit
+        #@explicit_jokes = API.new.get_jokes_by_genre("explicit")
+        jokeslist_with_index
+      end
 
       # ///IF USER SAYS NO
       def goodbye
@@ -149,11 +165,15 @@ class CLI
           user_input = gets.strip 
       end
       
-      def after_jokes_given
+      def after_jokes_given 
 
         puts "Wanna hear some more jokes?"
         puts " "
+        
         menu
+
+
+
         # response = user_input.downcase
         # if response == "yes"
         #   puts "COOL!"

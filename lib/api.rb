@@ -30,7 +30,7 @@ class API
      def get_jokes_by_genre(input)
        @url += "[#{input}]"
        get_chuck_jokes
-    end
+        end
 
     # def get_both_genre_(input)
 
@@ -40,9 +40,18 @@ class API
     # end
 
 end
-
-#API.new.get_chuck_jokes
-
+    def got_jokes(answer)
+        answer = user_input
+        if input == "yes"
+            #API.new.get_chuck_jokes
+            jokeslist_with_index
+        elsif input == "no"
+            goodbye
+        else
+            invalid_command
+        end
+        #Chuck_Joke.new(joke_hash)
+    end
 
 #<<<< -----------============--------->>>> NOTES FOR YOURSELF <<<< -----------============--------->>>>
 
