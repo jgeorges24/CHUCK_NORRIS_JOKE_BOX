@@ -5,14 +5,14 @@ require_relative './chuck_joke.rb'
 class API
 
     def initialize
-        @url = 'http://api.icndb.com/jokes/random/3?limitTo='
+        @url = 'http://api.icndb.com/jokes/random/30?limitTo='
     end
     #made adjustments to the API above to accomadate the if else function of nerdy or explicit jokes.
 
     def get_chuck_jokes
         puts " "
         puts "       ---------LOADING JOKES---------       "
-        sleep(1)
+        #sleep(1)
         puts " "
 #-> The URL BELOW IS THE FORMAT WHAT WE WANT FROM THE API <-
         #http://api.icndb.com/jokes/random/10?limitTo=[nerdy]
@@ -29,6 +29,14 @@ class API
        @url += "[#{input}]"
        get_chuck_jokes
     end
+
+    def get_both_genre_(input)
+
+        @url += "[#{input}]"
+        get_chuck_jokes
+        #
+    end
+
 end
 
 #API.new.get_chuck_jokes
