@@ -23,14 +23,24 @@ class Chuck_Joke
             @@all
         end
 
-    def self.single_joke
-        single_j = joke_hash["joke"]
-        single_j.each do |x|
-            puts "#{x.joke}"
+    def self.one_joke
+        @@all.detect.with_index do |x, tex|
+            puts "#{tex + 1}. #{x.joke}"
         end
-    
+    end
+
+    def self.joke
+        # puts "#{@@all.joke}"
+        @@all.collect.with_index do |z, index|
+            puts "#{index + 1}. #{z.joke}" 
+            
+        end
 
     end
+
+   
+
+    # end
         
 
         # def 
@@ -38,3 +48,6 @@ class Chuck_Joke
     #end
     # puts "chuck_jokes class has ran ---===---"
 end
+# end
+# end
+
