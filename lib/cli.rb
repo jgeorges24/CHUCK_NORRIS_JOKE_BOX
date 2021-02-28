@@ -2,6 +2,7 @@
 #responsible for interacting with the user
 
 class CLI
+ 
 
   def initialize
    
@@ -66,7 +67,8 @@ class CLI
               puts "GROOVY!, so you must be smart, check out these NERDY JOKES!"
               #sleep(1)
               nerd_joke
-              puts" "  
+              puts" "
+              #binding.pry
               
               after_nerdy_jokes_given
               puts" "  
@@ -81,8 +83,9 @@ class CLI
                 #jokeslist
                 #@explicit_jokes
                 #jokeslist_with_index
+                after_explicit_jokes_given
                 puts" "
-                puts "wanna hear some more jokes?"
+                #puts "wanna hear some more jokes?"
                 menu
                 puts" "
 
@@ -119,15 +122,10 @@ class CLI
       
         # jokes with index list//////
       def jokeslist_with_index
-        Chuck_Joke.all.each_with_index do |joke, index|
+          Chuck_Joke.all.shuffle.sample(11).each_with_index do |joke, index|
           puts "#{index + 1}. <-> #{joke.joke}"
           
         end
-      end
-
-      def shuffled_jokes
-
-        puts Chuck_Joke.all.shuffle()
       end
 
       # def grabbed_all_jokes(new_user_input)
@@ -143,12 +141,12 @@ class CLI
 
       #API CALLs for nerdy jokes used the @ symbole to make instance varibale 
       def nerd_joke
-        @nerdy_jokes = API.new.get_jokes_by_genre("nerdy")
+        nerdy_jokes = API.new.get_jokes_by_genre("nerdy")
         jokeslist_with_index
       end
       #API CALLs for explicit jokes used the @ symbole to make instance varibale 
       def explicit_joke
-        @explicit_jokes = API.new.get_jokes_by_genre("explicit")
+        explicit_jokes = API.new.get_jokes_by_genre("explicit")
         jokeslist_with_index
       end
 
@@ -203,10 +201,13 @@ class CLI
           puts " "
           nuser_response = user_input.downcase
           if nuser_response == "nerdy"  
-            Chuck_Joke.joke
+            # Chuck_Joke.joke 
+            jokes_mixed
+             #binding.pry
             after_nerdy_jokes_given
           elsif nuser_response == "explicit"
             explicit_joke
+            binding.pry
             after_explicit_jokes_given 
           #binding.pry
           else nuser_response != "nerdy" || "explicit"
@@ -229,8 +230,14 @@ class CLI
             puts "#{joke_obj.joke}"
         end
 
-
-       
+        def jokes_mixed
+          Chuck_Joke.all.shuffle.sample(5).each_with_index do |x, index| 
+            
+            #binding.pry
+            #shufflebaby.clear
+            puts "#{index +1}. #{x.joke}" 
+          end
+        end
         
 
         def after_explicit_jokes_given 
@@ -244,13 +251,13 @@ class CLI
             puts " "
             user_response = user_input.downcase
             if user_response == "nerdy"  
-              nerdy_jokes
-              
+              nerd_joke
               after_nerdy_jokes_given
             elsif user_response == "explicit"
               #single_joke
               #explicit_chuck
-              explicit_joke
+              #explicit_joke
+              jokes_mixed
               after_explicit_jokes_given
             end
             #binding.pry
@@ -260,38 +267,9 @@ class CLI
           else user_answers != "no" || "yes"
             invalid_command
           end 
-          after_explicit_jokes_given
+          #after_explicit_jokes_given
         
-        # response = user_input.downcase
-        # if response == "yes"
-        #   puts "COOL!"
-        #   puts " "
-        #   puts "wait...a nerdy or explicit joke? "
-        #   puts " "
-        #   response 
-        #   if response == "nerdy"
-        #     nerdy_jokes
-        #     jokeslist_with_index
-        #     after_jokes_given
-
-        #     elsif response == "explicit"
-        #       explicit_jokes
-        #       jokeslist_with_index
-        #       after_jokes_given
-            
-        #     else 
-        #       nerdy_explicit_invlaid
-        #     end
-
-        #   elsif response == "no"
-        #     goodbye
-        #   end
-
-        # else 
-        #   puts "Sorry for that, please type yes or no for more jokes..."
-        #   after_jokes_given
-        #   menu
-        # end
+  
       end
 
       def closing_statment

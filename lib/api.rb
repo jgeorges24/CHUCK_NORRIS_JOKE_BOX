@@ -5,7 +5,7 @@ require_relative './chuck_joke.rb'
 class API
 
     def initialize
-        @url = 'http://api.icndb.com/jokes/random/15?limitTo='  
+        @url = 'http://api.icndb.com/jokes/random/45?limitTo='  
     end
     #made adjustments to the API above to accomadate the if else function of nerdy or explicit jokes.
 
