@@ -12,7 +12,7 @@ Nerdy || Explicit Chuck Norris Joke Box, is a ruby driven CLI application that p
 ## Sample/Demo Video of Chuck Norris Joke Box
 
 CHUCK NORRIS JOKE BOX CLI/DEMO
-[CLICK HERE](https://youtu.be/czls1kUb80A)
+[CLICK HERE](https://youtu.be/9_fkjZMNPUY)
 
 
 ---

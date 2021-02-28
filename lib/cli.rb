@@ -14,8 +14,7 @@ class CLI
         title_Intro
         user_name_asker
         greeting(user_input)
-        menu 
-        
+        menu
       end
 
  #<<----------DEFINED METHODS BELOW ----------->>>>
