@@ -4,11 +4,11 @@
 class CLI
  
 
-  def initialize
+  # def initialize
    
     
     #//commented out because we went a level deeper by not automatically calling it here we will explicity call it depending on the user choice
-  end 
+  # end 
 
 #  <<<<<____------ THIS IS WHERE Method RUN in CLI comes in _____----------->>>>
       def run
@@ -192,7 +192,7 @@ class CLI
       
       def after_nerdy_jokes_given 
         puts " "
-        puts "Wanna hear some more jokes? type yes or no."
+        puts "Wanna hear some more jokes? type yes or no.".colorize(:green)
         puts " "
         nuser_answer = user_input.downcase
         puts " "
@@ -243,7 +243,7 @@ class CLI
 
         def after_explicit_jokes_given 
           puts " "
-          puts "Wanna hear some more jokes? type yes or no."
+          puts "Wanna hear some more jokes? type yes or no.".colorize(:yellow)
           puts " "
           user_answers = user_input.downcase
           puts " "
