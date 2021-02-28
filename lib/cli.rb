@@ -28,9 +28,9 @@ class CLI
 
       # ASK USER FOR THEIR NAME
       def user_name_asker
-        # sleep(1)
+        sleep(1)
         puts " ^_^ Hey welcome to the spot, Whats your name? o_0 "
-        # sleep(1)
+        sleep(1)
         puts " "
       end
 
@@ -39,10 +39,10 @@ class CLI
         #selection = user_input
         puts "Welcome #{(name).upcase}!, please don't mind my mom in the back!"
         puts " "
-        # sleep(1)
+        sleep(1)
         puts "I got some good Chuck Norris jokes for you..."
         puts " "
-        # sleep(1)
+        sleep(1)
         puts "So do you want to hear some jokes?"
       end
 
@@ -54,7 +54,7 @@ class CLI
          #AFTER USER INPUT This happens below <----
       
         if selection == "yes"
-          # sleep(1)
+          sleep(1)
           puts " "
           puts "okay, wanna hear some nerdy or explicit jokes?"
           puts " "
@@ -62,9 +62,9 @@ class CLI
           choice = user_input.downcase # THIS IS THE CATAGORY CHOICE "nerdy" or "explicit"---> 
             if choice == "nerdy"
               puts" "
-              # sleep(1)
+              sleep(1)
               puts "GROOVY!, so you must be smart, check out these NERDY JOKES!"
-              # sleep(1)
+              sleep(1)
               nerd_joke
               puts" "  
               
@@ -75,7 +75,7 @@ class CLI
               choice == "explicit"
                 puts" "
                 puts "FAIR WARNING!, don't piss yourself, have you heard of these"
-                # sleep(1)
+                sleep(1)
                 explicit_joke
                 #binding.pry
                 #jokeslist
@@ -88,7 +88,7 @@ class CLI
 
             else      # ----> used as an error corrector if user types something other than nerdy or explicit
               choice != "nerdy" || "explicit"
-              # sleep(1)
+              sleep(1)
               puts" "
               invalid_command
               puts" "
@@ -166,16 +166,16 @@ class CLI
       def goodbye
         puts " ^_^ REMEMBER TO KEEP SMILING! ^_^ "
         puts " "
-        # sleep(1)
+        sleep(1)
         puts "ENDING: <--- CHUCK NORRIS JOKE BOX ---> "
-        # sleep(1)
+        sleep(1)
         exit
       end
       
       #<<< if invalid comman ---> with yes or no .side not used menu method in  this method!!!
       def invalid_command 
         puts "HOW DARE YOU!? this is a yes or no question."
-        # sleep(1)
+        sleep(1)
         puts "nothing else suckerr..."
         menu
       end
@@ -289,13 +289,13 @@ class CLI
 
       def nerdy_explicit_invlaid
 
-        # sleep(1)
+        sleep(1)
         puts "ooops!..."
-        # sleep(1)
+        sleep(1)
         puts "Try it again!"
-        # sleep(1)
+        sleep(1)
         puts " 0_o please type nerdy or explicit"
-        # sleep(1)
+        sleep(1)
         puts "So do you want to hear some jokes, yes or no?"
       end
 
