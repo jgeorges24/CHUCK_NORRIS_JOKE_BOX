@@ -15,6 +15,7 @@ class CLI
         user_name_asker
         greeting(user_input)
         menu 
+        
       end
 
  #<<----------DEFINED METHODS BELOW ----------->>>>
@@ -127,7 +128,7 @@ class CLI
 
       def shuffled_jokes
 
-        puts Chuck_Joke.all.shuffle
+        puts Chuck_Joke.all.shuffle()
       end
 
       # def grabbed_all_jokes(new_user_input)
@@ -183,23 +184,25 @@ class CLI
 
       # USER_INPUT ---->
       def user_input
-          @user_input = gets.chomp.upcase 
-          # if user_input == "exit"
-          #   goodbye
-          #   exit
-          # end
+          @input = gets.chomp
+           if @input == "exit"
+             goodbye
+             puts ""
+             exit
+           end
+           @input
       end
       
       def after_nerdy_jokes_given 
         puts " "
         puts "Wanna hear some more jokes? type yes or no."
         puts " "
-        nuser_answer = user_input
+        nuser_answer = user_input.downcase
         puts " "
         if nuser_answer == "yes"
           puts "okay, nerdy or explicit jokes?"
           puts " "
-          nuser_response = user_input
+          nuser_response = user_input.downcase
           if nuser_response == "nerdy"  
             Chuck_Joke.joke
             after_nerdy_jokes_given
@@ -221,19 +224,29 @@ class CLI
           
         end 
         
+        def touch_joke(inputs)
+
+          joke_obj = Chuck_Joke.all[inputs.to_i-1]
+            puts "#{joke_obj.joke}"
+        end
+
+
+       
+        
 
         def after_explicit_jokes_given 
           puts " "
           puts "Wanna hear some more jokes? type yes or no."
           puts " "
-          user_answers = user_input
+          user_answers = user_input.downcase
           puts " "
           if user_answers == "yes"
             puts "okay, nerdy or explicit jokes?"
             puts " "
-            user_response = user_input
+            user_response = user_input.downcase
             if user_response == "nerdy"  
               nerdy_jokes
+              
               after_nerdy_jokes_given
             elsif user_response == "explicit"
               #single_joke
