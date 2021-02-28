@@ -4,7 +4,7 @@
 class CLI
 
   def initialize
-     Chuck_Joke.all
+   
     
     #//commented out because we went a level deeper by not automatically calling it here we will explicity call it depending on the user choice
   end 
