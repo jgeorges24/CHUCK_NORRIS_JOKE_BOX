@@ -38,7 +38,7 @@ class CLI
       def greeting(name)
         puts " "
         #selection = user_input
-        puts "Welcome #{name} !, please don't mind my mom in the back!"
+        puts "Welcome #{name}!, please don't mind my mom in the back!".colorize(:green)
         puts " "
         #sleep(1)
         puts "I got some good Chuck Norris jokes for you..."
