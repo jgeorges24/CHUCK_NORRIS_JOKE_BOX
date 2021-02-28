@@ -64,7 +64,7 @@ class CLI
             if choice == "nerdy"
               puts" "
               #sleep(1)
-              puts "GROOVY!, so you must be smart, check out these NERDY JOKES!"
+              puts "GROOVY!, so you must be smart, check out these NERDY JOKES!".colorize(:yellow)
               #sleep(1)
               nerd_joke
               puts" "
@@ -76,7 +76,7 @@ class CLI
             elsif
               choice == "explicit"
                 puts" "
-                puts "FAIR WARNING!, don't piss yourself, have you heard of these"
+                puts "FAIR WARNING!, don't piss yourself, have you heard of these".colorize(:red)
                 #sleep(1)
                 explicit_joke
                 #binding.pry
@@ -225,11 +225,11 @@ class CLI
           
         end 
         
-        def touch_joke(inputs)
+        # def touch_joke(inputs)
 
-          joke_obj = Chuck_Joke.all[inputs.to_i-1]
-            puts "#{joke_obj.joke}"
-        end
+        #   joke_obj = Chuck_Joke.all[inputs.to_i-1]
+        #     puts "#{joke_obj.joke}"
+        # end
 
         def jokes_mixed
           Chuck_Joke.all.shuffle.sample(5).each_with_index do |x, index| 
