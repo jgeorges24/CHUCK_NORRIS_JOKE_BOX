@@ -57,3 +57,9 @@ Open for any other contributers looking to turn this into a bible cli applicatio
 ---
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
+---
+## Code Of Conduct
+
+- Play nice you know right from wrong, so lets contribute peacfully and no negative vibes. 
+- use code respecfully.

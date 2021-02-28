@@ -23,14 +23,14 @@ class CLI
     # TITLE METHOD ---->
     def title_Intro
       puts ""
-      puts "----->>> CHUCK NORRIS NERDY || EXPLICIT JOKE BOX <<<-----"
+      puts "----->>> CHUCK NORRIS NERDY || EXPLICIT JOKE BOX <<<-----".colorize(:light_blue)
       puts ""
     end
 
       # ASK USER FOR THEIR NAME
       def user_name_asker
         #sleep(1)
-        puts " ^_^ Hey welcome to the spot, Whats your name? o_0 "
+        puts " ^_^ Hey welcome to the spot, Whats your name? o_0 ".colorize(:yellow)
         #sleep(1)
         puts " "
       end
@@ -166,19 +166,19 @@ class CLI
 
       # ///IF USER SAYS NO
       def goodbye
-        puts " ^_^ REMEMBER TO KEEP SMILING! ^_^ "
+        puts " ^_^ REMEMBER TO KEEP SMILING! ^_^ ".colorize(:yellow)
         puts " "
         #sleep(1)
-        puts "ENDING: <--- CHUCK NORRIS JOKE BOX ---> "
+        puts "ENDING: <--- CHUCK NORRIS JOKE BOX ---> ".colorize(:red)
         #sleep(1)
         exit
       end
       
       #<<< if invalid comman ---> with yes or no .side not used menu method in  this method!!!
       def invalid_command 
-        puts "HOW DARE YOU!? this is a yes or no question."
+        puts "HOW DARE YOU!? this is a yes or no question.".colorize(:red)
         #sleep(1)
-        puts "nothing else suckerr..."
+        puts "nothing else suckerr...".colorize(:yellow)
         menu
       end
 
@@ -200,7 +200,7 @@ class CLI
         nuser_answer = user_input.downcase
         puts " "
         if nuser_answer == "yes"
-          puts "okay, nerdy or explicit jokes?"
+          puts "okay, nerdy or explicit jokes?".colorize(:yellow)
           puts " "
           nuser_response = user_input.downcase
           if nuser_response == "nerdy"  
@@ -241,7 +241,7 @@ class CLI
           user_answers = user_input.downcase
           puts " "
           if user_answers == "yes"
-            puts "okay, nerdy or explicit jokes?"
+            puts "okay, nerdy or explicit jokes?".colorize(:blue)
             puts " "
             user_response = user_input.downcase
             if user_response == "nerdy"  
@@ -297,10 +297,10 @@ class CLI
 
       def closing_statment
         puts " "
-        puts "            ----- ^_^ -----                "
+        puts "            ----- ^_^ -----                ".colorize(:yellow)
         puts " "
-        puts "       COME BACK FOR MORE JOKES LATER      "
-        puts "-------------------------------------------"
+        puts "       COME BACK FOR MORE JOKES LATER      ".colorize(:yellow)
+        puts "-------------------------------------------".colorize(:blue)
         puts " "
         exit
       end
@@ -312,7 +312,7 @@ class CLI
         #sleep(1)
         puts "Try it again!"
         #sleep(1)
-        puts " 0_o please type nerdy or explicit"
+        puts " 0_o please type nerdy or explicit".colorize(:red)
         #sleep(1)
         puts "So do you want to hear some jokes, yes or no?"
       end
