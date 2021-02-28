@@ -1,5 +1,5 @@
 
-
+#responsible for interacting with the user
 
 class CLI
 
