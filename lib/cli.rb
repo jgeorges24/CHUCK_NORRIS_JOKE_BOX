@@ -150,9 +150,9 @@ class CLI
         jokeslist_with_index
       end
 
-      def single_joke
-        Chuck_Joke.one_joke
-      end
+      # def single_joke
+      #   Chuck_Joke.one_joke
+      # end
 
       def explicit_chuck
         Chuck_Joke.all.each do |jokie|
@@ -207,13 +207,14 @@ class CLI
             after_nerdy_jokes_given
           elsif nuser_response == "explicit"
             explicit_joke
-            binding.pry
+            #binding.pry
             after_explicit_jokes_given 
           #binding.pry
           else nuser_response != "nerdy" || "explicit"
             invalid_command
           end
-          elsif nuser_answer == "no"
+
+        elsif nuser_answer == "no"
           closing_statment
           goodbye
           
