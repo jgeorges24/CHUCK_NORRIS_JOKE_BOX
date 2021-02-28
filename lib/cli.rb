@@ -70,7 +70,7 @@ class CLI
               
               after_nerdy_jokes_given
               puts" "  
-              goodbye
+              #goodbye
             elsif
               choice == "explicit"
                 puts" "
@@ -99,7 +99,7 @@ class CLI
         elsif selection == "no"
           #this happens...
           puts " "
-          #goodbye
+          goodbye
         else selection != "yes" || "no"
           #okay this was an invalid response...
           puts " "
@@ -189,7 +189,7 @@ class CLI
         puts " "
         puts "Wanna hear some more jokes? type yes or no."
         puts " "
-        nuser_answer = user_input
+        nuser_answer = user_input.downcase
         puts " "
         if nuser_answer == "yes"
           puts "okay, nerdy or explicit jokes?"
@@ -200,13 +200,16 @@ class CLI
             after_nerdy_jokes_given
           elsif nuser_response == "explicit"
             explicit_joke
+            after_explicit_jokes_given 
           #binding.pry
           else nuser_response != "nerdy" || "explicit"
             invalid_command
           end
-        elsif nuser_answer == "no"
-          exit
-         end
+          elsif nuser_answer == "no"
+          closing_statment
+          goodbye
+          
+          end
          
         #else #nuser_answer != "yes" || "no"
           invalid_command
@@ -226,13 +229,16 @@ class CLI
             user_response = user_input
             if user_response == "nerdy"  
               nerdy_jokes
+              after_nerdy_jokes_given
             elsif user_response == "explicit"
               #single_joke
               #explicit_chuck
               explicit_joke
+              after_explicit_jokes_given
             end
             #binding.pry
           elsif user_answers == "no"
+            closing_statment
             goodbye
           else user_answers != "no" || "yes"
             invalid_command
