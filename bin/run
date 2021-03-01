@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+#code above is used to let shell know what language we speaking in this case its ruby...
 require_relative '../config/environment.rb'
 
 CLI.new.run

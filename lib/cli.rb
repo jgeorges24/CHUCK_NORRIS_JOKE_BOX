@@ -29,9 +29,9 @@ class CLI
 
       # ASK USER FOR THEIR NAME
       def user_name_asker
-        #sleep(1)
+        sleep(1)
         puts " ^_^ Hey welcome to the spot, Whats your name? o_0 ".colorize(:yellow)
-        #sleep(1)
+        sleep(1)
         puts " "
       end
 
@@ -40,10 +40,10 @@ class CLI
         #selection = user_input
         puts "Welcome #{name}!, please don't mind my mom in the back!".colorize(:green)
         puts " "
-        #sleep(1)
+        sleep(1)
         puts "I got some good Chuck Norris jokes for you..."
         puts " "
-        #sleep(1)
+        sleep(1)
         puts "So do you want to hear some jokes?"
       end
 
@@ -55,7 +55,7 @@ class CLI
          #AFTER USER INPUT This happens below <----
       
         if selection == "yes"
-          #sleep(1)
+          sleep(1)
           puts " "
           puts "okay, wanna hear some nerdy or explicit jokes?"
           puts " "
@@ -63,12 +63,12 @@ class CLI
           choice = user_input.downcase # THIS IS THE CATAGORY CHOICE "nerdy" or "explicit"---> 
             if choice == "nerdy"
               puts" "
-              #sleep(1)
+              sleep(1)
               puts "GROOVY!, so you must be smart, check out these NERDY JOKES!".colorize(:yellow)
-              #sleep(1)
+              sleep(1)
+              #binding.pry
               nerd_joke
               puts" "
-              #binding.pry
               
               after_nerdy_jokes_given
               puts" "  
@@ -77,7 +77,7 @@ class CLI
               choice == "explicit"
                 puts" "
                 puts "FAIR WARNING!, don't piss yourself, have you heard of these".colorize(:red)
-                #sleep(1)
+                sleep(1)
                 explicit_joke
                 #binding.pry
                 #jokeslist
@@ -91,7 +91,7 @@ class CLI
 
             else      # ----> used as an error corrector if user types something other than nerdy or explicit
               choice != "nerdy" || "explicit"
-              #sleep(1)
+              sleep(1)
               puts" "
               invalid_command
               puts" "
@@ -128,17 +128,7 @@ class CLI
         end
       end
 
-      # def grabbed_all_jokes(new_user_input)
-      #   puts "type yes to see all or exit to exit app"
-      #   if input == "yes"
-      #     puts self.all
-      #   elsif input == "exit"
-      #     goodbye
-      #   else 
-      #     menu
-      #   end
-      # end
-
+      
       #API CALLs for nerdy jokes used the @ symbole to make instance varibale 
       def nerd_joke
         nerdy_jokes = API.new.get_jokes_by_genre("nerdy")
@@ -149,46 +139,48 @@ class CLI
         explicit_jokes = API.new.get_jokes_by_genre("explicit")
         jokeslist_with_index
       end
-
-      # def single_joke
-      #   Chuck_Joke.one_joke
-      # end
-
-      def explicit_chuck
-        Chuck_Joke.all.each do |jokie|
-          puts "#{jokie.joke}"
-        end
-
-      end
-
+      
+      
       # ///IF USER SAYS NO
       def goodbye
         puts " ^_^ REMEMBER TO KEEP SMILING! ^_^ ".colorize(:yellow)
         puts " "
-        #sleep(1)
+        sleep(1)
         puts "ENDING: <--- CHUCK NORRIS JOKE BOX ---> ".colorize(:red)
-        #sleep(1)
+        sleep(1)
         exit
       end
       
       #<<< if invalid comman ---> with yes or no .side not used menu method in  this method!!!
       def invalid_command 
         puts "HOW DARE YOU!? this is a yes or no question.".colorize(:red)
-        #sleep(1)
+        sleep(1)
         puts "nothing else suckerr...".colorize(:yellow)
         menu
       end
-
+      
       # USER_INPUT ---->
       def user_input
-          @input = gets.chomp
-           if @input == "exit"
-             goodbye
-             puts ""
-             exit
-           end
-           @input
+        @input = gets.chomp
+        if @input == "exit"
+          goodbye
+          puts ""
+          exit
+        end
+        @input
       end
+      
+      
+      # Shuffled random jokes method
+      def jokes_mixed
+        Chuck_Joke.all.shuffle.sample(5).each_with_index do |x, index| 
+          
+          #binding.pry
+          #shufflebaby.clear
+          puts "#{index +1}. #{x.joke}" 
+        end
+      end
+      
       
       def after_nerdy_jokes_given 
         puts " "
@@ -203,76 +195,62 @@ class CLI
           if nuser_response == "nerdy"  
             # Chuck_Joke.joke 
             jokes_mixed
-             #binding.pry
+            #binding.pry
             after_nerdy_jokes_given
           elsif nuser_response == "explicit"
             explicit_joke
             #binding.pry
             after_explicit_jokes_given 
-          #binding.pry
+            #binding.pry
           else nuser_response != "nerdy" || "explicit"
             invalid_command
           end
-
+          
         elsif nuser_answer == "no"
           closing_statment
           goodbye
           
-          end
-         
-        #else #nuser_answer != "yes" || "no"
-          invalid_command
-          
-        end 
-        
-        # def touch_joke(inputs)
-
-        #   joke_obj = Chuck_Joke.all[inputs.to_i-1]
-        #     puts "#{joke_obj.joke}"
-        # end
-
-        def jokes_mixed
-          Chuck_Joke.all.shuffle.sample(5).each_with_index do |x, index| 
-            
-            #binding.pry
-            #shufflebaby.clear
-            puts "#{index +1}. #{x.joke}" 
-          end
         end
         
-
-        def after_explicit_jokes_given 
-          puts " "
-          puts "Wanna hear some more jokes? type yes or no.".colorize(:yellow)
-          puts " "
-          user_answers = user_input.downcase
-          puts " "
-          if user_answers == "yes"
-            puts "okay, nerdy or explicit jokes?".colorize(:blue)
-            puts " "
-            user_response = user_input.downcase
-            if user_response == "nerdy"  
-              nerd_joke
-              after_nerdy_jokes_given
-            elsif user_response == "explicit"
-              #single_joke
-              #explicit_chuck
-              #explicit_joke
-              jokes_mixed
-              after_explicit_jokes_given
-            end
-            #binding.pry
-          elsif user_answers == "no"
-            closing_statment
-            goodbye
-          else user_answers != "no" || "yes"
-            invalid_command
-          end 
-          #after_explicit_jokes_given
+        #else #nuser_answer != "yes" || "no"
+        invalid_command
         
-  
+      end 
+      
+      
+      
+      def after_explicit_jokes_given 
+        puts " "
+        puts "Wanna hear some more jokes? type yes or no.".colorize(:yellow)
+        puts " "
+        user_answers = user_input.downcase
+        puts " "
+        if user_answers == "yes"
+          puts "okay, nerdy or explicit jokes?".colorize(:blue)
+          puts " "
+          user_response = user_input.downcase
+          if user_response == "nerdy"  
+            nerd_joke
+            after_nerdy_jokes_given
+          elsif user_response == "explicit"
+            #single_joke
+            #explicit_chuck
+            #explicit_joke
+            jokes_mixed
+            after_explicit_jokes_given
+          end
+          #binding.pry
+        elsif user_answers == "no"
+          closing_statment
+          goodbye
+        else user_answers != "no" || "yes"
+          invalid_command
+        end 
+        #after_explicit_jokes_given
+        
+        
       end
-
+      
       def closing_statment
         puts " "
         puts "            ----- ^_^ -----                ".colorize(:yellow)
@@ -282,18 +260,47 @@ class CLI
         puts " "
         exit
       end
-
+      
       def nerdy_explicit_invlaid
-
-        #sleep(1)
+        
+        sleep(1)
         puts "ooops!..."
-        #sleep(1)
+        sleep(1)
         puts "Try it again!"
-        #sleep(1)
+        sleep(1)
         puts " 0_o please type nerdy or explicit".colorize(:red)
-        #sleep(1)
+        sleep(1)
         puts "So do you want to hear some jokes, yes or no?"
-      end
+        end
+
+
+        # def single_joke
+        #   Chuck_Joke.one_joke
+        # end
+        
+        # def explicit_chuck
+        #   Chuck_Joke.all.each do |jokie|
+        #     puts "#{jokie.joke}"
+        #   end
+        
+        # end
+
+        # def grabbed_all_jokes(new_user_input)
+        #   puts "type yes to see all or exit to exit app"
+        #   if input == "yes"
+        #     puts self.all
+        #   elsif input == "exit"
+        #     goodbye
+        #   else 
+        #     menu
+        #   end
+        # end
+
+          # def touch_joke(inputs)
+  
+          #   joke_obj = Chuck_Joke.all[inputs.to_i-1]
+          #     puts "#{joke_obj.joke}"
+          # end
 
 end
 
